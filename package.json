@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass -w src/resources/scss --output src/public/css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "beautiful": "prettier --write --single-quote --trailing-comma all --tab-width 4 'src/**/*.{js,json,scss}'"
   },
   "repository": {
     "type": "git",
@@ -22,14 +23,25 @@
     "url": "https://github.com/codebyCtrl-C-V/nodejs_blog/issues"
   },
   "homepage": "https://github.com/codebyCtrl-C-V/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --write --single-quote --trailing-comma all --tab-width 4"
+  },
+  "husky": {
+    "hook": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "blog": "file:",
     "express": "^4.21.0",
     "express-handlebars": "^8.0.1"
   },
   "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "morgan": "^1.10.0",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3"
   }
 }
