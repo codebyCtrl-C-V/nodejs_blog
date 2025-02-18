@@ -6,8 +6,16 @@ const app = express();
 const port = 3000;
 
 const route = require('./routes');
+const db = require('./config/database')
 
-app.use(express.static(path.join(__dirname, 'public')));
+//connect db
+db.Sequelize;
+
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'resources/uploads')));
+
+app.use(express.urlencoded({ extended: true }));
+
 app.use(
     express.urlencoded({
         extended: true,
@@ -26,11 +34,11 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 //route init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

@@ -34,7 +34,10 @@
   "dependencies": {
     "blog": "file:",
     "express": "^4.21.0",
-    "express-handlebars": "^8.0.1"
+    "express-handlebars": "^8.0.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5"
   },
   "devDependencies": {
     "husky": "^9.1.6",

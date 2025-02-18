@@ -1,0 +1,22 @@
+<div class="mt-4">
+    <h2>Cập nhật tin tức</h2>
+    <form action="/news/update/{{news.id}}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{news.title}}" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" id="content" name="content" required>{{news.content}}</textarea>
+        </div>
+        <div class="form-group">
+            <label>Ảnh hiện tại:</label>
+            <img src="{{news.image}}" alt="Ảnh bài viết" width="200">
+        </div>
+        <div class="form-group">
+            <label for="image">Chọn ảnh mới (nếu có):</label>
+            <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+</div>
